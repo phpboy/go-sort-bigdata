@@ -97,6 +97,8 @@ func NetworkWrite(addr string,in <-chan int){
 
 		var writer = bufio.NewWriter(conn)
 
+		defer writer.Flush()
+		
 		WriteFile(writer,in)
 	}()
 
